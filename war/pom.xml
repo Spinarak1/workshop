@@ -19,7 +19,7 @@
             <artifactId>javaee-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>pl.wizard.software</groupId>
+            <groupId>software</groupId>
             <artifactId>ejb</artifactId>
             <version>1.0.0-SNAPSHOT</version>
             <scope>compile</scope>
