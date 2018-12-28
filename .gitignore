@@ -48,3 +48,6 @@ bin/
 out/
 target/
 .vscode/launch.json
+
+# Other
+.idea/workspace.xml
