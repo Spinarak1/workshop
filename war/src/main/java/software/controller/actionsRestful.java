@@ -3,7 +3,8 @@ package software.controller;
 import software.actions.actionsDto;
 import software.actions.actionsDtoToEntity;
 import software.actions.actionsShortDto;
-import software.entities.actionsEntity;
+import software.entities.ActionDao;
+import software.entities.ActionEntity;
 
 import javax.ejb.EJB;
 import javax.ws.rs.*;
@@ -16,7 +17,7 @@ public class actionsRestful {
 
 
     @EJB
-    private software.entities.actionsDao actionsDao;
+    private ActionDao actionsDao;
 
     @GET
     @Path("{id}")
@@ -37,7 +38,7 @@ public class actionsRestful {
     @Consumes("application/json; charset=UTF-8")
     @Produces("application/json; charset=UTF-8")
     public Response addActions(actionsDto aActions) {
-        actionsEntity ent = actionsDao.addActions(actionsDtoToEntity.toEntity(aActions));
+        ActionEntity ent = actionsDao.addActions(actionsDtoToEntity.toEntity(aActions));
         actionsDto ret = new actionsDto(ent);
         return Response.status(201).entity(ret).build();
     }

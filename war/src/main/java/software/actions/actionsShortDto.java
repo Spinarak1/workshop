@@ -1,7 +1,7 @@
 package software.actions;
 
 
-import software.entities.actionsEntity;
+import software.entities.ActionEntity;
 
 public class actionsShortDto {
 
@@ -21,7 +21,7 @@ public class actionsShortDto {
         opis = aActionsDto.getOpis();
     }
 
-    public actionsShortDto(actionsEntity aEntity) {
+    public actionsShortDto(ActionEntity aEntity) {
         id = aEntity.getId();
         kwota = aEntity.getKwota();
         opis = aEntity.getOpis();

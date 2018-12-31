@@ -1,14 +1,13 @@
 package software.actions;
 
-import software.entities.actionsEntity;
+import software.entities.ActionEntity;
 
 public class actionsDtoToEntity {
 
-    public static actionsEntity toEntity(actionsDto aEnt){
-        actionsEntity ret = new actionsEntity();
+    public static ActionEntity toEntity(actionsDto aEnt){
+        ActionEntity ret = new ActionEntity(aEnt.getId());
         ret.setKwota(aEnt.getKwota());
         ret.setOpis(aEnt.getOpis());
-        ret.setId(aEnt.getId());
         return ret;
     }
 }

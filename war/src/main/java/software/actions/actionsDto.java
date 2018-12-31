@@ -1,6 +1,6 @@
 package software.actions;
 
-import software.entities.actionsEntity;
+import software.entities.ActionEntity;
 
 import java.io.Serializable;
 
@@ -24,7 +24,7 @@ public class actionsDto implements Serializable {
         this.opis = opis;
     }
 
-    public actionsDto(actionsEntity actionsEntity) {
+    public actionsDto(ActionEntity actionsEntity) {
         this.id = actionsEntity.getId();
         this.kwota = actionsEntity.getKwota();
         this.opis = actionsEntity.getOpis();
