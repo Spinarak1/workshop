@@ -7,8 +7,8 @@ import java.io.Serializable;
 public class actionsDto implements Serializable {
 
     private Long id;
-    private int kwota;
-    private String opis;
+    private int amount;
+    private String description;
 
     public actionsDto() {
 
@@ -18,16 +18,16 @@ public class actionsDto implements Serializable {
         id = aId;
     }
 
-    public actionsDto(Long id, int kwota, String opis) {
+    public actionsDto(Long id, int amount, String description) {
         this.id = id;
-        this.kwota = kwota;
-        this.opis = opis;
+        this.amount = amount;
+        this.description = description;
     }
 
     public actionsDto(ActionEntity actionsEntity) {
         this.id = actionsEntity.getId();
-        this.kwota = actionsEntity.getKwota();
-        this.opis = actionsEntity.getOpis();
+        this.amount = actionsEntity.getAmount();
+        this.description = actionsEntity.getDescription();
     }
 
     public void setId(Long id) {
@@ -38,20 +38,20 @@ public class actionsDto implements Serializable {
         return id;
     }
 
-    public int getKwota() {
-        return kwota;
+    public int getAmount() {
+        return amount;
     }
 
-    public String getOpis() {
-        return opis;
+    public String getDescription() {
+        return description;
     }
 
-    public void setKwota(int kwota) {
-        this.kwota = kwota;
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
-    public void setOpis(String opis) {
-        this.opis = opis;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
 
