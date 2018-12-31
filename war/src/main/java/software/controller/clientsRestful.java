@@ -3,7 +3,8 @@ package software.controller;
 import software.clients.clientsDto;
 import software.clients.clientsDtoToEntity;
 import software.clients.clientsShortDto;
-import software.entities.clientsEntity;
+import software.entities.ClientDao;
+import software.entities.ClientEntity;
 
 import javax.ejb.EJB;
 import javax.ws.rs.*;
@@ -16,7 +17,7 @@ public class clientsRestful {
 
 
     @EJB
-    private software.entities.clientsDao clientsDao;
+    private ClientDao clientsDao;
 
     @GET
     @Path("{id}")
@@ -37,7 +38,7 @@ public class clientsRestful {
     @Consumes("application/json; charset=UTF-8")
     @Produces("application/json; charset=UTF-8")
     public Response addClients(clientsDto aClients) {
-        clientsEntity ent = clientsDao.addClients(clientsDtoToEntity.toEntity(aClients));
+        ClientEntity ent = clientsDao.addClients(clientsDtoToEntity.toEntity(aClients));
         clientsDto ret = new clientsDto(ent);
         return Response.status(201).entity(ret).build();
     }

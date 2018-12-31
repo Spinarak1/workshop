@@ -1,16 +1,18 @@
 package software.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import java.io.Serializable;
 
 @Entity
 @Table
 public class ActionEntity extends AbstractBaseEntity {
+    private int amount;
+    private String description;
 
-    private Long id;
-    private int kwota;
-    private String opis;
+    @ManyToOne(cascade = CascadeType.REMOVE)
+    private ServiceEntity service;
 
     public ActionEntity() {
     }
@@ -19,30 +21,39 @@ public class ActionEntity extends AbstractBaseEntity {
         super(aId);
     }
 
-    public ActionEntity(Long id, int kwota, String opis) {
+    public ActionEntity(Long id, ServiceEntity service, int kwota, String opis) {
         this(id);
-        this.kwota = kwota;
-        this.opis = opis;
+        this.amount = kwota;
+        this.description = opis;
+        this.service = service;
     }
 
-    public int getKwota() {
-        return kwota;
+    public int getAmount() {
+        return amount;
     }
 
-    public String getOpis() {
-        return opis;
+    public String getDescription() {
+        return description;
     }
 
-    public void setKwota(int kwota) {
-        this.kwota = kwota;
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
-    public void setOpis(String opis) {
-        this.opis = opis;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public ServiceEntity getService() {
+        return service;
+    }
+
+    public void setService(ServiceEntity service) {
+        this.service = service;
     }
 
     public void update(ActionEntity aAction) {
-        opis = aAction.getOpis();
-        kwota = aAction.getKwota();
+        description = aAction.getDescription();
+        amount = aAction.getAmount();
     }
 }

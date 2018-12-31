@@ -17,14 +17,14 @@ public class actionsShortDto {
 
     public actionsShortDto(actionsDto aActionsDto){
         id = aActionsDto.getId();
-        kwota = aActionsDto.getKwota();
-        opis = aActionsDto.getOpis();
+        kwota = aActionsDto.getAmount();
+        opis = aActionsDto.getDescription();
     }
 
     public actionsShortDto(ActionEntity aEntity) {
         id = aEntity.getId();
-        kwota = aEntity.getKwota();
-        opis = aEntity.getOpis();
+        kwota = aEntity.getAmount();
+        opis = aEntity.getDescription();
     }
 
     public Long getId() {

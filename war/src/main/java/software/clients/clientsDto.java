@@ -26,11 +26,11 @@ public class clientsDto implements Serializable {
         this.phoneNumber = phoneNumber;
     }
 
-    public clientsDto(clientsEntity clientsEntity) {
+    public clientsDto(ClientEntity clientsEntity) {
         this.id = clientsEntity.getId();
         this.name = clientsEntity.getName();
         this.surname = clientsEntity.getSurname();
-        this.adress = clientsEntity.getAdress();
+        this.adress = clientsEntity.getAddress();
         this.phoneNumber = clientsEntity.getPhoneNumber();
     }
 

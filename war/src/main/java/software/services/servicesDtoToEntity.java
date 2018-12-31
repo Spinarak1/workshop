@@ -1,13 +1,11 @@
 package software.services;
 
-import software.entities.servicesEntity;
-import software.entities.clientsEntity;
+import software.entities.ServiceEntity;
 
 public class servicesDtoToEntity {
 
-    public static servicesEntity toEntity(servicesDto aEnt){
-        servicesEntity ret = new servicesEntity();
-        ret.setId(aEnt.getId());
+    public static ServiceEntity toEntity(servicesDto aEnt){
+        ServiceEntity ret = new ServiceEntity(aEnt.getId());
         ret.setDateOfAcceptance(aEnt.getDateOfAcceptance());
         ret.setEndDate(aEnt.getEndDate());
         ret.setDescription(aEnt.getDescription());

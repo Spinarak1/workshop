@@ -1,6 +1,6 @@
 package software.clients;
 
-import software.entities.clientsEntity;
+import software.entities.ClientEntity;
 
 public class clientsShortDto {
 
@@ -26,11 +26,11 @@ public class clientsShortDto {
         phoneNumber = aClientsDto.getPhoneNumber();
     }
 
-    public clientsShortDto(clientsEntity aEntity) {
+    public clientsShortDto(ClientEntity aEntity) {
         id = aEntity.getId();
         name = aEntity.getName();
         surname = aEntity.getSurname();
-        adress = aEntity.getAdress();
+        adress = aEntity.getAddress();
         phoneNumber = aEntity.getPhoneNumber();
     }
 
