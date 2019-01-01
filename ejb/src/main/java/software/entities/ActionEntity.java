@@ -21,10 +21,16 @@ public class ActionEntity extends AbstractBaseEntity {
         super(aId);
     }
 
-    public ActionEntity(Long id, ServiceEntity service, int kwota, String opis) {
+    public ActionEntity(Long id, ServiceEntity service, int amount, String description) {
         this(id);
-        this.amount = kwota;
-        this.description = opis;
+        this.amount = amount;
+        this.description = description;
+        this.service = service;
+    }
+
+    public ActionEntity(ServiceEntity service, int amount, String description) {
+        this.amount = amount;
+        this.description = description;
         this.service = service;
     }
 

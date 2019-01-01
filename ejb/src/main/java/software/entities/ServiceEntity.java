@@ -34,6 +34,13 @@ public class ServiceEntity extends AbstractBaseEntity  {
         this.description = description;
     }
 
+    public ServiceEntity(ClientEntity client, Date dateOfAcceptance, Date endDate, String description) {
+        this.client = client;
+        this.dateOfAcceptance = dateOfAcceptance;
+        this.endDate = endDate;
+        this.description = description;
+    }
+
     public Date getDateOfAcceptance() {
         return dateOfAcceptance;
     }

@@ -1,8 +1,8 @@
 package software.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table
@@ -19,6 +19,13 @@ public class ClientEntity extends AbstractBaseEntity {
     }
     public ClientEntity(Long id, String name, String surname, String adress, String phoneNumber) {
         super(id);
+        this.name = name;
+        this.surname = surname;
+        this.address = adress;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public ClientEntity(String name, String surname, String adress, String phoneNumber) {
         this.name = name;
         this.surname = surname;
         this.address = adress;
