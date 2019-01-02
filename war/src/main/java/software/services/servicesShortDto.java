@@ -13,7 +13,8 @@ public class servicesShortDto {
     private final String description;
     private final clientsEntity client;
 
-    public servicesShortDto(clientsEntity client, Date dateOfAcceptance, Date endDate, String description) {
+    public servicesShortDto(Long id, clientsEntity client, Date dateOfAcceptance, Date endDate, String description) {
+        this.id = id;
         this.client = client;
         this.dateOfAcceptance = dateOfAcceptance;
         this.endDate = endDate;

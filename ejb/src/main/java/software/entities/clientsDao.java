@@ -9,7 +9,7 @@ import java.util.*;
 @Singleton
 public class clientsDao {
 
-    private final Set<clientsEntity> clients = new HashSet<>();
+    final Set<clientsEntity> clients = new HashSet<>();
 
     public clientsDao() {}
 

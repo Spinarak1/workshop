@@ -9,9 +9,9 @@ import java.util.Date;
 public class servicesEntity implements Serializable {
 
     private Long id;
-    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")
+    //@JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")
     private Date dateOfAcceptance;
-    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")
+    //@JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")
     private Date endDate;
     private String description;
     @ManyToOne

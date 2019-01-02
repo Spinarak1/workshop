@@ -1,5 +1,7 @@
 package software.entities;
 
+import software.entities.clientsDao;
+
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
@@ -7,18 +9,17 @@ import java.util.*;
 
 @Startup
 @Singleton
-public class servicesDao {
+public class servicesDao{
 
     private final Set<servicesEntity> services = new HashSet<>();
 
     public servicesDao(){}
 
-
     @PostConstruct
     void init(){
-        services.add(new servicesEntity(1, cl1, "2018-12-12 12:22:32", "2018-12-13 13:30:11", "Olej"));
-        services.add(new servicesEntity(2, cl2, "2018-12-12 12:22:32", "2018-12-12 12:22:32", "Skrzynia"));
-        services.add(new servicesEntity(3, cl3, "2018-12-12 12:22:32", "2018-12-12 12:22:32", "Opony"));
+        services.add(new servicesEntity(1l, new clientsEntity(1l, "Jaroslaw", "Banaszak", "Grunwaldzka Poznan", "7766655511"),new Date(2018, 12, 12, 13, 12, 11), new Date(2018, 12, 13, 14, 20, 11), "Olej"));
+        services.add(new servicesEntity(2l, new clientsEntity(2l, "Andrzej", "Mierzejewski", "Wioslarska Poznan", "9988443223"),new Date(2018, 12, 14, 13, 30, 11), new Date(2018, 12, 15, 15, 20, 11), "Skrzynia"));
+        services.add(new servicesEntity(3l, new clientsEntity(3l, "Maciej", "Mieleszko", "Kurpinskiego Poznan", "2233445566"),new Date(2018, 12, 16, 17, 11, 11), new Date(2018, 12, 20, 18, 20, 11), "Opony"));
     }
 
     public Optional<servicesEntity> getServicesById(long aId){
