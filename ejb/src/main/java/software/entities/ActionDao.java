@@ -33,9 +33,6 @@ public class ActionDao {
     }
 
     public ActionEntity update(ActionEntity aActions) {
-        ActionEntity dbBook = getActionsById(aActions.getId()).get();
-        aActions.update(aActions);
-        ActionEntity ret = em.merge(aActions);
-        return ret;
+        return em.merge(aActions);
     }
 }

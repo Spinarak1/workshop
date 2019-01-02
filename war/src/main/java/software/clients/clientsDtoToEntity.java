@@ -1,15 +1,14 @@
 package software.clients;
 
-import software.entities.clientsEntity;
+import software.entities.ClientEntity;
 
 public class clientsDtoToEntity {
 
-    public static clientsEntity toEntity(clientsDto aEnt){
-        clientsEntity ret = new clientsEntity();
-        ret.setId(aEnt.getId());
+    public static ClientEntity toEntity(clientsDto aEnt){
+        ClientEntity ret = new ClientEntity(aEnt.getId());
         ret.setName(aEnt.getName());
         ret.setSurname(aEnt.getSurname());
-        ret.setAdress(aEnt.getAdress());
+        ret.setAddress(aEnt.getAdress());
         ret.setPhoneNumber(aEnt.getPhoneNumber());
         return ret;
     }
