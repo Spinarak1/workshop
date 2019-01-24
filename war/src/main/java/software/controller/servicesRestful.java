@@ -6,12 +6,14 @@ import software.services.servicesShortDto;
 import software.entities.ServiceEntity;
 
 import javax.ejb.EJB;
+import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Path("services")
+@RequestScoped
 public class servicesRestful {
 
 

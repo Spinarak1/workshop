@@ -48,8 +48,8 @@ class Actions extends Component {
 
         const actionsList = actions.map(actions => {
             return <tr key={actions.id}>
-                <td>{actions.kwota}</td>
-                <td>{actions.opis}</td>
+                <td>{actions.amount}</td>
+                <td>{actions.decription}</td>
                 <td>
                     <ButtonGroup>
                         <Button size="sm" bsStyle="primary" href={"/actions/" + actions.id}>Edit</Button>
@@ -63,7 +63,7 @@ class Actions extends Component {
             <div>
                 <header className="App-header">
                     <NavigationBar/>
-                    <div fluid>
+                    <div>
                         <div align="right">
                             <Button bsStyle="success" href="/actions/new">Add Action</Button>
                         </div>

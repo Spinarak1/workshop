@@ -7,12 +7,14 @@ import software.entities.ActionDao;
 import software.entities.ActionEntity;
 
 import javax.ejb.EJB;
+import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Path("actions")
+@RequestScoped
 public class actionsRestful {
 
 

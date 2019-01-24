@@ -65,7 +65,7 @@ class Clients extends Component {
             <div>
                 <header className="App-header">
                     <NavigationBar/>
-                    <div fluid>
+                    <div>
                         <div align="right">
                             <Button bsStyle="success" href="/clients/new">Add Client</Button>
                         </div>
