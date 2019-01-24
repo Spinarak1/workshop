@@ -9,7 +9,7 @@ public class clientsDto implements Serializable {
     private Long id;
     private String name;
     private String surname;
-    private String adress;
+    private String address;
     private String phoneNumber;
 
     public clientsDto(){}
@@ -18,11 +18,11 @@ public class clientsDto implements Serializable {
         id = aId;
     }
 
-    public clientsDto(Long id, String name, String surname, String adress, String phoneNumber) {
+    public clientsDto(Long id, String name, String surname, String address, String phoneNumber) {
         this.id = id;
         this.name = name;
         this.surname = surname;
-        this.adress = adress;
+        this.address = address;
         this.phoneNumber = phoneNumber;
     }
 
@@ -30,7 +30,7 @@ public class clientsDto implements Serializable {
         this.id = clientsEntity.getId();
         this.name = clientsEntity.getName();
         this.surname = clientsEntity.getSurname();
-        this.adress = clientsEntity.getAddress();
+        this.address = clientsEntity.getAddress();
         this.phoneNumber = clientsEntity.getPhoneNumber();
     }
 
@@ -50,7 +50,7 @@ public class clientsDto implements Serializable {
         return surname;
     }
 
-    public String getAdress(){ return adress; }
+    public String getAddress(){ return address; }
 
     public String getPhoneNumber() {
         return phoneNumber;
@@ -64,8 +64,8 @@ public class clientsDto implements Serializable {
         this.surname = surname;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public void setPhoneNumber(String phoneNumber) {

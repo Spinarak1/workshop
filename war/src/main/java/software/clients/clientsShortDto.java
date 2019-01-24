@@ -7,14 +7,14 @@ public class clientsShortDto {
     private final Long id;
     private final String name;
     private final String surname;
-    private final String adress;
+    private final String address;
     private final String phoneNumber;
 
-    public clientsShortDto(Long id, String name, String surname, String adress, String phoneNumber) {
+    public clientsShortDto(Long id, String name, String surname, String address, String phoneNumber) {
         this.id = id;
         this.name = name;
         this.surname = surname;
-        this.adress = adress;
+        this.address = address;
         this.phoneNumber = phoneNumber;
     }
 
@@ -22,7 +22,7 @@ public class clientsShortDto {
         id = aClientsDto.getId();
         name = aClientsDto.getName();
         surname = aClientsDto.getSurname();
-        adress = aClientsDto.getAdress();
+        address = aClientsDto.getAddress();
         phoneNumber = aClientsDto.getPhoneNumber();
     }
 
@@ -30,7 +30,7 @@ public class clientsShortDto {
         id = aEntity.getId();
         name = aEntity.getName();
         surname = aEntity.getSurname();
-        adress = aEntity.getAddress();
+        address = aEntity.getAddress();
         phoneNumber = aEntity.getPhoneNumber();
     }
 
@@ -46,7 +46,7 @@ public class clientsShortDto {
         return surname;
     }
 
-    public String getAdress() { return adress; }
+    public String getAddress() { return address; }
 
     public String getPhoneNumber() { return phoneNumber; }
 

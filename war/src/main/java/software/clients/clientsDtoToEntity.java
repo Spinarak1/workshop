@@ -8,7 +8,7 @@ public class clientsDtoToEntity {
         ClientEntity ret = new ClientEntity(aEnt.getId());
         ret.setName(aEnt.getName());
         ret.setSurname(aEnt.getSurname());
-        ret.setAddress(aEnt.getAdress());
+        ret.setAddress(aEnt.getAddress());
         ret.setPhoneNumber(aEnt.getPhoneNumber());
         return ret;
     }
