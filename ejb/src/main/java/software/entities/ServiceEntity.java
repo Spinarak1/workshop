@@ -2,6 +2,7 @@ package software.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -12,9 +13,9 @@ import java.util.Date;
 @Table
 public class ServiceEntity extends AbstractBaseEntity  {
 
-    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date dateOfAcceptance;
-    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date endDate;
     private String description;
     @ManyToOne
