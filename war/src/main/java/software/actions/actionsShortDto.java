@@ -6,36 +6,36 @@ import software.entities.ActionEntity;
 public class actionsShortDto {
 
     private final Long id;
-    private final int kwota;
-    private final String opis;
+    private final int amount;
+    private final String decription;
 
-    public actionsShortDto(Long id, int kwota, String opis) {
+    public actionsShortDto(Long id, int amount, String description) {
         this.id = id;
-        this.kwota = kwota;
-        this.opis = opis;
+        this.amount = amount;
+        this.decription = description;
     }
 
     public actionsShortDto(actionsDto aActionsDto){
         id = aActionsDto.getId();
-        kwota = aActionsDto.getAmount();
-        opis = aActionsDto.getDescription();
+        amount = aActionsDto.getAmount();
+        decription = aActionsDto.getDescription();
     }
 
     public actionsShortDto(ActionEntity aEntity) {
         id = aEntity.getId();
-        kwota = aEntity.getAmount();
-        opis = aEntity.getDescription();
+        amount = aEntity.getAmount();
+        decription = aEntity.getDescription();
     }
 
     public Long getId() {
         return id;
     }
 
-    public int getKwota() {
-        return kwota;
+    public int getAmount() {
+        return amount;
     }
 
-    public String getOpis() {
-        return opis;
+    public String getDecription() {
+        return decription;
     }
 }
