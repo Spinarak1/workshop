@@ -49,7 +49,7 @@ class Actions extends Component {
         const actionsList = actions.map(actions => {
             return <tr key={actions.id}>
                 <td>{actions.amount}</td>
-                <td>{actions.decription}</td>
+                <td>{actions.description}</td>
                 <td>
                     <ButtonGroup>
                         <Button size="sm" bsStyle="primary" href={"/actions/" + actions.id}>Edit</Button>

@@ -5,8 +5,8 @@ import {withRouter} from 'react-router-dom';
 class ClientsEdit extends Component {
 
     emptyItem = {
-        kwota: '',
-        opis: '',
+        amount: '',
+        description: '',
     };
 
     constructor(props) {
@@ -57,14 +57,14 @@ class ClientsEdit extends Component {
                     {title}
                     <Form onSubmit={this.handleSubmit}>
                         <FormGroup>
-                            <Label for="kwota">Amount</Label>
-                            <FormControl type="text" name="kwota" id="kwota" value={item.kwota || ''}
-                                         onChange={this.handleChange} autoComplete="kwota"/>
+                            <Label for="amount">Amount</Label>
+                            <FormControl type="text" name="amount" id="amount" value={item.amount || ''}
+                                         onChange={this.handleChange} autoComplete="amount"/>
                         </FormGroup>
                         <FormGroup>
-                            <Label fluid for="opis">Description</Label>
-                            <FormControl type="text" name="opis" id="opis" value={item.opis || ''}
-                                         onChange={this.handleChange} autoComplete="opis"/>
+                            <Label fluid for="description">Description</Label>
+                            <FormControl type="text" name="description" id="description" value={item.description || ''}
+                                         onChange={this.handleChange} autoComplete="description"/>
                         </FormGroup>
                         <FormGroup>
                             <Button color="primary" type="submit">Save</Button>{' '}

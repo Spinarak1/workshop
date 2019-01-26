@@ -17,18 +17,18 @@ public class ClientEntity extends AbstractBaseEntity {
     public ClientEntity(long aId) {
         super(aId);
     }
-    public ClientEntity(Long id, String name, String surname, String adress, String phoneNumber) {
+    public ClientEntity(Long id, String name, String surname, String address, String phoneNumber) {
         super(id);
         this.name = name;
         this.surname = surname;
-        this.address = adress;
+        this.address = address;
         this.phoneNumber = phoneNumber;
     }
 
-    public ClientEntity(String name, String surname, String adress, String phoneNumber) {
+    public ClientEntity(String name, String surname, String address, String phoneNumber) {
         this.name = name;
         this.surname = surname;
-        this.address = adress;
+        this.address = address;
         this.phoneNumber = phoneNumber;
     }
 

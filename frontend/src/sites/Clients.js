@@ -50,7 +50,7 @@ class Clients extends Component {
             return <tr key={clients.id}>
                 <td>{clients.name}</td>
                 <td>{clients.surname}</td>
-                <td>{clients.adress}</td>
+                <td>{clients.address}</td>
                 <td>{clients.phoneNumber}</td>
                 <td>
                     <ButtonGroup>

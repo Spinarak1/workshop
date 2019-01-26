@@ -7,7 +7,7 @@ class ClientsEdit extends Component {
     emptyItem = {
         name: '',
         surname: '',
-        adress: '',
+        address: '',
         phoneNumber: ''
     };
 
@@ -69,9 +69,9 @@ class ClientsEdit extends Component {
                                          onChange={this.handleChange} autoComplete="surname"/>
                         </FormGroup>
                         <FormGroup>
-                            <Label for="adress">Address</Label>
-                            <FormControl type="text" name="adress" id="adress" value={item.adress || ''}
-                                         onChange={this.handleChange} autoComplete="adress"/>
+                            <Label for="address">Address</Label>
+                            <FormControl type="text" name="address" id="address" value={item.address || ''}
+                                         onChange={this.handleChange} autoComplete="address"/>
                         </FormGroup>
                         <FormGroup>
                             <Label for="phoneNumber">Phone Number</Label>
