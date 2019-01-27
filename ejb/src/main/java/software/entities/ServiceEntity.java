@@ -23,7 +23,7 @@ public class ServiceEntity extends AbstractBaseEntity  {
 
     public ServiceEntity(){}
 
-    public ServiceEntity(long aId) {
+    public ServiceEntity(Long aId) {
         super(aId);
     }
 

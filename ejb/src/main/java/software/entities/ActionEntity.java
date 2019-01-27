@@ -17,7 +17,7 @@ public class ActionEntity extends AbstractBaseEntity {
     public ActionEntity() {
     }
 
-    public ActionEntity(long aId) {
+    public ActionEntity(Long aId) {
         super(aId);
     }
 

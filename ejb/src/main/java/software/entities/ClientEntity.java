@@ -14,7 +14,7 @@ public class ClientEntity extends AbstractBaseEntity {
     private String phoneNumber;
 
     public ClientEntity(){}
-    public ClientEntity(long aId) {
+    public ClientEntity(Long aId) {
         super(aId);
     }
     public ClientEntity(Long id, String name, String surname, String address, String phoneNumber) {
