@@ -9,7 +9,9 @@ import software.entities.ActionEntity;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -32,7 +34,22 @@ public class actionsRestful {
     @GET
     @Produces("application/json; charset=UTF-8")
     public Response getAll() {
-        List<actionsShortDto> ret = actionsDao.getAll().stream().map(actionsShortDto::new).collect(Collectors.toList());
+        List<actionsShortDto> ret = actionsDao.getAll()
+                .stream()
+                .map(actionsShortDto::new)
+                .collect(Collectors.toList());
+        return Response.status(200).entity(ret).build();
+    }
+    @Path("actionsByCosts")
+    @GET
+    @Produces("application/json; charset=UTF-8")
+    public Response getByCosts(@Context UriInfo info) {
+        int costs = Integer.valueOf(info.getQueryParameters().getFirst("costs"));
+        List<actionsShortDto> ret = actionsDao.getAll()
+                .stream()
+                .filter(action -> action.getAmount() == costs)
+                .map(actionsShortDto::new)
+                .collect(Collectors.toList());
         return Response.status(200).entity(ret).build();
     }
 

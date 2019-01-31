@@ -1,14 +1,16 @@
 package software.controller;
 
+import software.entities.ServiceEntity;
 import software.services.servicesDto;
 import software.services.servicesDtoToEntity;
 import software.services.servicesShortDto;
-import software.entities.ServiceEntity;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -33,6 +35,21 @@ public class servicesRestful {
     public Response getAll() {
         List<servicesShortDto> ret = serviceDao.getAll().stream().map(servicesShortDto::new).collect(Collectors.toList());
         return Response.status(200).entity(ret).build();
+    }
+
+    @GET
+    @Path("serviceByClient")
+    @Produces("application/json; charset=UTF-8")
+    public Response getServiceByClient(@Context UriInfo info) {
+        String name = info.getQueryParameters().getFirst("clientName");
+        String surname = info.getQueryParameters().getFirst("clientSurname");
+
+        List<servicesDto> list = serviceDao.getAll()
+                .stream()
+                .filter(service -> service.getClient().getName().equals(name) && service.getClient().getSurname().equals(surname))
+                .map(servicesDto::new)
+                .collect(Collectors.toList());
+        return Response.status(200).entity(list).build();
     }
 
     @POST

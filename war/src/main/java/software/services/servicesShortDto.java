@@ -1,19 +1,19 @@
 package software.services;
 
-import software.entities.ServiceEntity;
 import software.entities.ClientEntity;
+import software.entities.ServiceEntity;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class servicesShortDto {
 
     private final Long id;
-    private final Date dateOfAcceptance;
-    private final Date endDate;
+    private final LocalDate dateOfAcceptance;
+    private final LocalDate endDate;
     private final String description;
     private final ClientEntity client;
 
-    public servicesShortDto(Long id, ClientEntity client, Date dateOfAcceptance, Date endDate, String description) {
+    public servicesShortDto(Long id, ClientEntity client, LocalDate dateOfAcceptance, LocalDate endDate, String description) {
         this.id = id;
         this.client = client;
         this.dateOfAcceptance = dateOfAcceptance;
@@ -41,11 +41,11 @@ public class servicesShortDto {
         return id;
     }
 
-    public Date getDateOfAcceptance() {
+    public LocalDate getDateOfAcceptance() {
         return dateOfAcceptance;
     }
 
-    public Date getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 

@@ -9,7 +9,9 @@ import software.entities.ClientEntity;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -34,6 +36,20 @@ public class clientsRestful {
     public Response getAll() {
         List<clientsShortDto> ret = clientsDao.getAll().stream().map(clientsShortDto::new).collect(Collectors.toList());
         return Response.status(200).entity(ret).build();
+    }
+    @GET
+    @Path("clientsByPhoneAndName")
+    @Produces("application/json; charset=UTF-8")
+    public Response getActionsByCosts(@Context UriInfo info) {
+        String name = info.getQueryParameters().getFirst("name");
+        String phoneNumber = info.getQueryParameters().getFirst("phoneNumber");
+
+        List<clientsDto> list = clientsDao.getAll()
+                .stream()
+                .filter(client -> client.getName().equals(name) && client.getPhoneNumber().equals(phoneNumber))
+                .map(clientsDto::new)
+                .collect(Collectors.toList());
+        return Response.status(200).entity(list).build();
     }
 
     @POST

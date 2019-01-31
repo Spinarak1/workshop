@@ -22,6 +22,19 @@ public class ClientDao {
         return em.createQuery("SELECT b FROM ClientEntity b", ClientEntity.class).getResultList();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ClientDao clientDao = (ClientDao) o;
+        return Objects.equals(em, clientDao.em);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(em);
+    }
+
     public ClientEntity addClients(ClientEntity aClients){
         em.persist(aClients);
         return aClients;

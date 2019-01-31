@@ -1,7 +1,6 @@
 package software;
 
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import software.entities.ActionEntity;
 import software.entities.ClientEntity;
 import software.entities.ServiceEntity;
@@ -11,10 +10,7 @@ import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.GregorianCalendar;
+import java.time.LocalDate;
 
 @Singleton
 @Startup
@@ -26,21 +22,17 @@ public class InitializeDatabaseBean {
 
     @PostConstruct
     public void init(){
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        String date1 = "2019-01-21";
-        String date2 = "2019-01-23";
-        try {
-            Date firstDate = formatter.parse(date1);
-            Date secondDate = formatter.parse(date2);
+        LocalDate date1 = LocalDate.of(2019,01,30);
+        LocalDate date2 = LocalDate.of(2019, 01, 31);
 
 
         ClientEntity c1 = new ClientEntity("Adam", "Walaszek", "Polna 2", "777666555");
         ClientEntity c2 = new ClientEntity("Adam", "Misiejuk", "Mickiewicza 12", "999888777");
         ClientEntity c3 = new ClientEntity("Jan", "Kowalski", "Matejki 22", "888777666");
 
-        ServiceEntity s1 = new ServiceEntity(c1, firstDate, secondDate, "Olej");
-        ServiceEntity s2 = new ServiceEntity(c2, firstDate, secondDate, "Skrzynia");
-        ServiceEntity s3 = new ServiceEntity(c3, firstDate, secondDate, "Opony");
+        ServiceEntity s1 = new ServiceEntity(c1, date1, date2, "Olej");
+        ServiceEntity s2 = new ServiceEntity(c2, date1, date2, "Skrzynia");
+        ServiceEntity s3 = new ServiceEntity(c3, date1, date2, "Opony");
 
         ActionEntity a1 = new ActionEntity(s1, 200, "Olej");
         ActionEntity a2 = new ActionEntity(s2, 300, "Skrzynia");
@@ -57,9 +49,6 @@ public class InitializeDatabaseBean {
         em.persist(a1);
         em.persist(a2);
         em.persist(a3);
-        }catch (ParseException e){
-            System.out.println("Incorrect parse");
-        }
 
     }
 }

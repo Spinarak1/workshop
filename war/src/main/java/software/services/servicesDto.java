@@ -1,16 +1,16 @@
 package software.services;
 
-import software.entities.ServiceEntity;
 import software.entities.ClientEntity;
+import software.entities.ServiceEntity;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class servicesDto implements Serializable {
 
     private Long id;
-    private Date dateOfAcceptance;
-    private Date endDate;
+    private LocalDate dateOfAcceptance;
+    private LocalDate endDate;
     private String description;
     private ClientEntity client;
 
@@ -19,7 +19,7 @@ public class servicesDto implements Serializable {
         id = aId;
     }
 
-    public servicesDto(ClientEntity client, Date dateOfAcceptance, Date endDate, String description) {
+    public servicesDto(ClientEntity client, LocalDate dateOfAcceptance, LocalDate endDate, String description) {
         this.client = client;
         this.dateOfAcceptance = dateOfAcceptance;
         this.endDate = endDate;
@@ -42,11 +42,11 @@ public class servicesDto implements Serializable {
         return id;
     }
 
-    public Date getDateOfAcceptance() {
+    public LocalDate getDateOfAcceptance() {
         return dateOfAcceptance;
     }
 
-    public Date getEndDate(){
+    public LocalDate getEndDate(){
         return endDate;
     }
 
@@ -58,11 +58,11 @@ public class servicesDto implements Serializable {
         return client;
     }
 
-    public void setDateOfAcceptance(Date dateOfAcceptance) {
+    public void setDateOfAcceptance(LocalDate dateOfAcceptance) {
         this.dateOfAcceptance = dateOfAcceptance;
     }
 
-    public void setEndDate(Date endDate){
+    public void setEndDate(LocalDate endDate){
         this.endDate = endDate;
     }
 

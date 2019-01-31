@@ -12,9 +12,8 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.File;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class RaportGenerator{
@@ -25,22 +24,22 @@ public class RaportGenerator{
         parent.appendChild(e);
     }
 
-    private void saveService (ServiceEntity s, Document doc, Element parent,int numberOfActivities, int cost){
+    private void saveService (ServiceEntity s, Document doc, Element parent, int numberOfActivities, int cost){
         Element serviceS = doc.createElement("Services");
         parent.appendChild(serviceS);
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         serviceS.setAttribute("id", String.valueOf(s.getId()));
-        addTextElement(doc, serviceS, "date_of_acceptance", sdf.format(s.getDateOfAcceptance()));
+        addTextElement(doc, serviceS, "date_of_acceptance", s.getDateOfAcceptance().format(formatter));
         addTextElement(doc, serviceS, "number_of_actions", String.valueOf(numberOfActivities));
         addTextElement(doc, serviceS, "cost", String.valueOf(cost));
     }
 
-    public void sumOfCosts (EntityManager entityManager, Date endDate, String path) throws Exception {
+    public void sumOfCosts (EntityManager entityManager, LocalDate endDate, String path) throws Exception {
 
-        SimpleDateFormat d = new SimpleDateFormat("yyyy-MM-dd");
-        String ds = d.format(endDate);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String ds = endDate.format(formatter);
         System.out.println(ds);
-        Query query = entityManager.createQuery("SELECT k FROM ServiceEntity k WHERE date(endDate) = '" + ds + "'");
+        Query query = entityManager.createQuery("SELECT k FROM ServiceEntity k WHERE endDate = '" + ds + "'");
         @SuppressWarnings("unchecked")
         List<ServiceEntity> service = query.getResultList();
 
@@ -51,11 +50,11 @@ public class RaportGenerator{
 
         Element servicesS = doc.createElement("Services");
         doc.appendChild(servicesS);
-        servicesS.setAttribute("endDate", new SimpleDateFormat("yyyy-MM-dd").format(endDate));
+        servicesS.setAttribute("endDate", endDate.format(formatter));
 
         for (ServiceEntity s : service) {
             System.out.println("id_service: " + s.getId() + "id_client: " + s.getClient().getId());
-            Query actionsQuery = entityManager.createQuery("SELECT c FROM ServiceEntity c WHERE service_id = " + s.getId());
+            Query actionsQuery = entityManager.createQuery("SELECT c FROM ServiceEntity c WHERE id = " + s.getId());
             @SuppressWarnings("unchecked")
             List<ActionEntity> actions = actionsQuery.getResultList();
             int sumOfCosts = 0;
@@ -74,10 +73,9 @@ public class RaportGenerator{
         transformer.transform(source, result);
     }
     public void sumCostsOfYesterday (EntityManager entityManager, String catalog) throws Exception {
-        Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.DAY_OF_MONTH, -1);
-        Date data = calendar.getTime();
-        String fileName = catalog + new SimpleDateFormat("yyyy-MM-dd").format(data) + ".xml";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate data = LocalDate.now().minusDays(1);
+        String fileName = catalog + data.format(formatter) + ".xml";
         System.out.println(fileName);
         sumOfCosts(entityManager, data, fileName);
     }

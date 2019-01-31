@@ -1,11 +1,8 @@
 package software.entities;
 
-import javax.persistence.*;
-import java.io.Serializable;
-import java.util.Set;
+import javax.persistence.Entity;
 
 @Entity
-@Table
 public class ClientEntity extends AbstractBaseEntity {
 
     private String name;
@@ -13,6 +10,9 @@ public class ClientEntity extends AbstractBaseEntity {
     private String address;
     private String phoneNumber;
 
+    public static ClientEntity of(final String name, final String surname, final String address, final String phoneNumber){
+        return new ClientEntity(name, surname, address, phoneNumber);
+    }
     public ClientEntity(){}
     public ClientEntity(Long aId) {
         super(aId);
